@@ -53,6 +53,19 @@ All colors MUST be HSL.
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Brand identity tokens */
+    --brand: 266 85% 54%; /* Vibrant violet */
+    --brand-2: 312 77% 54%; /* Pop magenta */
+    --hero-foreground: 0 0% 100%;
+
+    /* Gradients & shadows */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--brand)), hsl(var(--brand-2)));
+    --shadow-elegant: 0 10px 25px hsl(var(--brand) / 0.30);
+    --shadow-glow: 0 6px 40px hsl(var(--brand-2) / 0.45);
+
+    /* Motion */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
@@ -83,6 +96,7 @@ All colors MUST be HSL.
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -91,6 +105,15 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Dark brand stays vibrant */
+    --brand: 267 85% 62%;
+    --brand-2: 312 77% 60%;
+    --hero-foreground: 0 0% 100%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(var(--brand)), hsl(var(--brand-2)));
+    --shadow-elegant: 0 10px 25px hsl(var(--brand) / 0.35);
+    --shadow-glow: 0 6px 44px hsl(var(--brand-2) / 0.55);
   }
 }
 
@@ -101,5 +124,14 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    background-image: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 }
