@@ -36,12 +36,12 @@ const Index = () => {
                 Top platforms ka access, 100% safe & verified service. Pocket-friendly prices, instant delivery. Ab binge hoga non-stop! 🍿📺 @reseller_deeproy
               </p>
 
-              <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
+              <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
                 <Button asChild variant="hero" size="lg" className="hover-scale">
-                  <a href="#order" aria-label="Order Now">Order Now</a>
+                  <a href="https://t.me/primetimeott" target="_blank" rel="noopener noreferrer">Order Now</a>
                 </Button>
                 <Button asChild variant="secondary" size="lg" className="hover-scale">
-                  <a href="#features" aria-label="See Plans">Start Binge-Watching</a>
+                  <a href="#features">See Platforms</a>
                 </Button>
               </div>
 
@@ -128,7 +128,9 @@ const Index = () => {
             <h2 className="mt-2 text-2xl md:text-3xl font-semibold">Ready to binge? Best prices, instant delivery!</h2>
             <p className="mt-2 text-muted-foreground">Order karo aur binge shuru karo — aaj hi. Fast delivery ✅ 100% trusted ✅ Unlimited entertainment ✅</p>
             <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-              <Button variant="hero" size="lg" className="hover-scale">Order Now</Button>
+              <Button asChild variant="hero" size="lg" className="hover-scale">
+                <a href="https://t.me/primetimeott" target="_blank" rel="noopener noreferrer">Order Now</a>
+              </Button>
               <Button asChild variant="secondary" size="lg" className="hover-scale">
                 <a href="#features">See Platforms</a>
               </Button>
