@@ -1,150 +1,225 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, ShieldCheck, Zap, Headphones } from "lucide-react";
+import { Send, Zap, Flame } from "lucide-react";
 
-// Home landing page for PrimeTimeOTT – OTT deals platform
+// NFT Landing Page - Dark Theme
 const Index = () => {
   return (
-    <div>
-      <header>
-        <nav className="container py-6 flex items-center justify-between">
-          <a href="#" className="inline-flex items-center gap-2 font-semibold">
-            <span className="gradient-text">PrimeTimeOTT</span>
-          </a>
-          <div className="hidden md:flex items-center gap-4">
-            <a href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors story-link">Features</a>
-            <a href="#trust" className="text-sm text-muted-foreground hover:text-foreground transition-colors story-link">Trust</a>
-            <a href="#order" className="text-sm text-muted-foreground hover:text-foreground transition-colors story-link">Order</a>
-          </div>
-        </nav>
-      </header>
-
-      <main>
-        {/* Hero Section */}
-        <section aria-label="Best OTT Deals Hero" className="hero-bg">
-          <div className="hero-pattern" aria-hidden="true" />
-          <div className="container min-h-[78vh] flex items-center justify-center">
-            <div className="w-full max-w-5xl mx-auto py-10 md:py-14 text-center glass neon rounded-3xl md:rounded-[28px] p-6 md:p-12 animate-enter">
-              <p className="mb-3 inline-flex items-center gap-2 rounded-full bg-secondary px-3 py-1 text-xs md:text-sm text-secondary-foreground">
-                🚀 Fast delivery • 💯 Trusted • 📞 24/7 Support
-              </p>
-              <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
-                <span className="block">UNIQUE COLLECTION OF</span>
-                <span className="neon-title"> OTT DEALS</span>
-              </h1>
-              <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-                Top platforms ka access, 100% safe & verified service. Pocket-friendly prices, instant delivery. Ab binge hoga non-stop! 🍿📺 @reseller_deeproy
-              </p>
-
-              <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-                <Button asChild variant="hero" size="lg" className="hover-scale">
-                  <a href="https://t.me/primetimeott" target="_blank" rel="noopener noreferrer">Order Now</a>
-                </Button>
-                <Button asChild variant="secondary" size="lg" className="hover-scale">
-                  <a href="#features">See Platforms</a>
-                </Button>
-              </div>
-
-              {/* Platform strip */}
-              <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
-                {["Netflix", "Prime Video", "Disney+ Hotstar", "Zee5", "SonyLIV"].map((name) => (
-                  <div key={name} className="platform-card rounded-xl py-4 px-5 text-sm font-medium hover-float">
-                    {name}
+    <div className="min-h-screen bg-gradient-to-b from-purple-950 via-purple-900 to-purple-800">
+      {/* Hero Section */}
+      <main className="relative">
+        <section className="container mx-auto px-6 py-8">
+          <div className="max-w-6xl mx-auto text-center">
+            {/* PrimeTime OTT Logo with 3D Effect */}
+            <div className="relative mb-16">
+              {/* Main Logo Container */}
+              <div className="relative inline-block transform perspective-1000">
+                {/* Main Logo Image */}
+                <div className="relative">
+                  <img 
+                    src="/primetime-ott-logo.png" 
+                    alt="PrimeTime OTT Logo" 
+                    className="w-96 md:w-[500px] h-auto drop-shadow-2xl animate-pulse"
+                    onError={(e) => {
+                      // Fallback to text if image fails to load
+                      e.currentTarget.style.display = 'none';
+                      const fallback = document.createElement('div');
+                      fallback.innerHTML = `
+                        <h1 class="text-6xl md:text-8xl font-black text-transparent bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text mb-4">PrimeTime</h1>
+                        <h2 class="text-8xl md:text-9xl font-black text-transparent bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text">OTT</h2>
+                      `;
+                      fallback.className = 'text-center';
+                      e.currentTarget.parentNode.appendChild(fallback);
+                    }}
+                  />
+                  
+                  {/* 3D Depth Effect - Multiple layers for depth */}
+                  <div className="absolute inset-0 transform translate-z-4 opacity-30">
+                    <img 
+                      src="/primetime-ott-logo.png" 
+                      alt="PrimeTime OTT Logo Depth" 
+                      className="w-96 md:w-[500px] h-auto"
+                    />
                   </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Features Section */}
-        <section id="features" className="container py-16 md:py-20">
-          <div className="max-w-2xl mx-auto text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-semibold">All your favorite OTTs, ek hi jagah</h2>
-            <p className="mt-2 text-muted-foreground">Netflix, Prime Video, Disney+ Hotstar, Zee5, SonyLIV — sabka access ab pocket-friendly price me.</p>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
-            {["Netflix", "Prime Video", "Disney+ Hotstar", "Zee5", "SonyLIV"].map((name) => (
-              <div key={name} className="rounded-md border bg-card px-4 py-3 text-center text-sm shadow-sm">
-                {name}
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10 grid md:grid-cols-3 gap-6">
-            <div className="rounded-lg border bg-card p-6 shadow-sm">
-              <h3 className="font-medium">Transparent Pricing</h3>
-              <p className="mt-2 text-sm text-muted-foreground">No hidden charges. Jo dikhega wahi pay karoge. 💯</p>
-            </div>
-            <div className="rounded-lg border bg-card p-6 shadow-sm">
-              <h3 className="font-medium">Easy Renewal</h3>
-              <p className="mt-2 text-sm text-muted-foreground">Renew karna simple — bina kisi jhanjhat ke. 🔄</p>
-            </div>
-            <div className="rounded-lg border bg-card p-6 shadow-sm">
-              <h3 className="font-medium">Multiple Devices Support</h3>
-              <p className="mt-2 text-sm text-muted-foreground">Family & friends ke saath share karo, enjoy on multiple devices. 🧑‍🤝‍🧑</p>
-            </div>
-          </div>
-        </section>
-
-        {/* Trust Section */}
-        <section id="trust" className="bg-muted/50 py-16 md:py-20">
-          <div className="container">
-            <div className="max-w-2xl mb-8">
-              <h2 className="text-2xl md:text-3xl font-semibold">Why Choose Us</h2>
-              <p className="mt-2 text-muted-foreground">Hamari priority hai aapka trust and quick service.</p>
-            </div>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="rounded-lg border bg-card p-6 shadow-sm">
-                <div className="flex items-center gap-2">
-                  <ShieldCheck className="text-[hsl(var(--brand))]" />
-                  <h3 className="font-medium">Verified Seller</h3>
+                  
+                  <div className="absolute inset-0 transform translate-z-8 opacity-20">
+                    <img 
+                      src="/primetime-ott-logo.png" 
+                      alt="PrimeTime OTT Logo Depth" 
+                      className="w-96 md:w-[500px] h-auto"
+                    />
+                  </div>
+                  
+                  <div className="absolute inset-0 transform translate-z-12 opacity-10">
+                    <img 
+                      src="/primetime-ott-logo.png" 
+                      alt="PrimeTime OTT Logo Depth" 
+                      className="w-96 md:w-[500px] h-auto"
+                    />
+                  </div>
                 </div>
-                <p className="mt-2 text-sm text-muted-foreground">100% safe & verified. Zero-risk experience. ✅</p>
-              </div>
-              <div className="rounded-lg border bg-card p-6 shadow-sm">
-                <div className="flex items-center gap-2">
-                  <Headphones className="text-[hsl(var(--brand))]" />
-                  <h3 className="font-medium">24/7 Customer Support</h3>
+                
+                {/* Glowing Effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 via-yellow-300/20 to-yellow-500/20 blur-3xl rounded-full animate-pulse"></div>
+                
+                {/* Floating Service Logos around the main logo */}
+                <div className="absolute inset-0 pointer-events-none">
+                  {/* Netflix */}
+                  <div className="absolute -bottom-8 -left-16 transform rotate-12 animate-float">
+                    <div className="w-16 h-16 bg-red-600 rounded-lg flex items-center justify-center text-white font-bold text-sm shadow-lg">NETFLIX</div>
+                  </div>
+                  
+                  {/* Disney+ */}
+                  <div className="absolute -bottom-6 -right-20 transform -rotate-12 animate-float" style={{animationDelay: '0.5s'}}>
+                    <div className="w-14 h-14 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xs shadow-lg">DISNEY+</div>
+                  </div>
+                  
+                  {/* HBO Max */}
+                  <div className="absolute top-8 right-8 transform rotate-6 animate-float" style={{animationDelay: '1s'}}>
+                    <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-xs shadow-lg">HBO</div>
+                  </div>
+                  
+                  {/* Tubi */}
+                  <div className="absolute top-4 left-12 transform -rotate-6 animate-float" style={{animationDelay: '1.5s'}}>
+                    <div className="w-10 h-10 bg-red-500 rounded-lg flex items-center justify-center text-white font-bold text-xs shadow-lg">TUBI</div>
+                  </div>
+                  
+                  {/* Battlegrounds */}
+                  <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 animate-float" style={{animationDelay: '0.8s'}}>
+                    <div className="w-20 h-10 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center text-black font-bold text-xs shadow-lg border border-yellow-300 hover:scale-110 transition-transform duration-300">
+                      BATTLEGROUNDS
+                    </div>
+                  </div>
                 </div>
-                <p className="mt-2 text-sm text-muted-foreground">Kabhi bhi help chahiye? Hum hamesha yahan hai. ☎️</p>
-              </div>
-              <div className="rounded-lg border bg-card p-6 shadow-sm">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="text-[hsl(var(--brand))]" />
-                  <h3 className="font-medium">Secure Payment</h3>
-                </div>
-                <p className="mt-2 text-sm text-muted-foreground">Trusted methods only. Aapka data hamare liye secure. 🔒</p>
               </div>
             </div>
-          </div>
-        </section>
 
-        {/* Order CTA Section */}
-        <section id="order" className="container py-16 md:py-20">
-          <div className="rounded-2xl border bg-card p-8 md:p-12 text-center shadow-sm">
-            <p className="text-sm uppercase tracking-wide text-muted-foreground">Limited time offer – grab it now!</p>
-            <h2 className="mt-2 text-2xl md:text-3xl font-semibold">Ready to binge? Best prices, instant delivery!</h2>
-            <p className="mt-2 text-muted-foreground">Order karo aur binge shuru karo — aaj hi. Fast delivery ✅ 100% trusted ✅ Unlimited entertainment ✅</p>
-            <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-              <Button asChild variant="hero" size="lg" className="hover-scale">
-                <a href="https://t.me/primetimeott" target="_blank" rel="noopener noreferrer">Order Now</a>
-              </Button>
-              <Button asChild variant="secondary" size="lg" className="hover-scale">
-                <a href="#features">See Platforms</a>
+            {/* CTA Buttons */}
+            <div className="flex justify-center mb-16">
+              <Button 
+                size="lg" 
+                className="relative overflow-hidden bg-gradient-to-r from-purple-600 via-purple-500 to-purple-600 hover:from-purple-500 hover:via-purple-400 hover:to-purple-500 text-white px-12 py-6 text-xl font-bold rounded-full shadow-2xl hover:shadow-purple-500/50 transition-all duration-500 hover:scale-110 group animate-pulse"
+                onClick={() => window.open('https://t.me/primetimeott', '_blank')}
+              >
+                <span className="relative z-10">Join Now</span>
+                {/* Animated background elements */}
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-400 via-purple-300 to-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-purple-500 to-purple-600 rounded-full blur opacity-75 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
+                {/* Floating particles */}
+                <div className="absolute top-2 left-4 w-2 h-2 bg-white rounded-full opacity-60 animate-bounce"></div>
+                <div className="absolute top-4 right-6 w-1.5 h-1.5 bg-white rounded-full opacity-40 animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                <div className="absolute bottom-3 left-8 w-1 h-1 bg-white rounded-full opacity-50 animate-bounce" style={{animationDelay: '0.4s'}}></div>
               </Button>
             </div>
+
+            {/* OTT Service Logos Display */}
+            <div className="relative">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
+                {/* Netflix */}
+                <div className="group relative transform rotate-2 hover:rotate-0 transition-all duration-300 hover:scale-110">
+                  <div className="bg-gradient-to-br from-red-500/20 to-red-600/20 border border-red-400/30 rounded-xl p-6 backdrop-blur-sm hover:bg-red-500/30 transition-colors">
+                    <div className="w-full h-20 bg-red-600 rounded-lg mb-3 flex items-center justify-center">
+                      <span className="text-white font-bold text-lg">NETFLIX</span>
+                    </div>
+                    <div className="text-center">
+                      <div className="w-8 h-8 bg-red-500 rounded-full mx-auto mb-2 flex items-center justify-center">
+                        <span className="text-white text-xs font-bold">N</span>
+                      </div>
+                      <p className="text-white/90 text-sm">Streaming</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Disney+ */}
+                <div className="group relative transform -rotate-1 hover:rotate-0 transition-all duration-300 hover:scale-110">
+                  <div className="bg-gradient-to-br from-blue-500/20 to-blue-600/20 border border-blue-400/30 rounded-xl p-6 backdrop-blur-sm hover:bg-blue-500/30 transition-colors">
+                    <div className="w-full h-20 bg-blue-600 rounded-lg mb-3 flex items-center justify-center">
+                      <span className="text-white font-bold text-lg">DISNEY+</span>
+                    </div>
+                    <div className="text-center">
+                      <div className="w-8 h-8 bg-blue-500 rounded-full mx-auto mb-2 flex items-center justify-center">
+                        <span className="text-white text-xs font-bold">D</span>
+                      </div>
+                      <p className="text-white/90 text-sm">Family</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Prime Video */}
+                <div className="group relative transform rotate-1 hover:rotate-0 transition-all duration-300 hover:scale-110">
+                  <div className="bg-gradient-to-br from-cyan-500/20 to-blue-600/20 border border-cyan-400/30 rounded-xl p-6 backdrop-blur-sm hover:bg-cyan-500/30 transition-colors">
+                    <div className="w-full h-20 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg mb-3 flex items-center justify-center">
+                      <span className="text-white font-bold text-lg">PRIME</span>
+                    </div>
+                    <div className="text-center">
+                      <div className="w-8 h-8 bg-cyan-500 rounded-full mx-auto mb-2 flex items-center justify-center">
+                        <span className="text-white text-xs font-bold">P</span>
+                      </div>
+                      <p className="text-white/90 text-sm">Movies</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* HBO Max */}
+                <div className="group relative transform -rotate-2 hover:rotate-0 transition-all duration-300 hover:scale-110">
+                  <div className="bg-gradient-to-br from-purple-500/20 to-purple-600/20 border border-purple-400/30 rounded-xl p-6 backdrop-blur-sm hover:bg-purple-500/30 transition-colors">
+                    <div className="w-full h-20 bg-purple-600 rounded-lg mb-3 flex items-center justify-center">
+                      <span className="text-white font-bold text-lg">HBO MAX</span>
+                    </div>
+                    <div className="text-center">
+                      <div className="w-8 h-8 bg-purple-500 rounded-full mx-auto mb-2 flex items-center justify-center">
+                        <span className="text-white text-xs font-bold">H</span>
+                      </div>
+                      <p className="text-white/90 text-sm">Premium</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Hulu */}
+                <div className="group relative transform rotate-3 hover:rotate-0 transition-all duration-300 hover:scale-110">
+                  <div className="bg-gradient-to-br from-green-500/20 to-green-600/20 border border-green-400/30 rounded-xl p-6 backdrop-blur-sm hover:bg-green-500/30 transition-colors">
+                    <div className="w-full h-20 bg-green-600 rounded-lg mb-3 flex items-center justify-center">
+                      <span className="text-white font-bold text-lg">HULU</span>
+                    </div>
+                    <div className="text-center">
+                      <div className="w-8 h-8 bg-green-500 rounded-full mx-auto mb-2 flex items-center justify-center">
+                        <span className="text-white text-xs font-bold">H</span>
+                      </div>
+                      <p className="text-white/90 text-sm">TV Shows</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Apple TV+ */}
+                <div className="group relative transform -rotate-1 hover:rotate-0 transition-all duration-300 hover:scale-110">
+                  <div className="bg-gradient-to-br from-gray-500/20 to-gray-600/20 border border-gray-400/30 rounded-xl p-6 backdrop-blur-sm hover:bg-gray-500/30 transition-colors">
+                    <div className="w-full h-20 bg-gray-600 rounded-lg mb-3 flex items-center justify-center">
+                      <span className="text-white font-bold text-lg">APPLE TV+</span>
+                    </div>
+                    <div className="text-center">
+                      <div className="w-8 h-8 bg-gray-500 rounded-full mx-auto mb-2 flex items-center justify-center">
+                        <span className="text-white text-xs font-bold">A</span>
+                      </div>
+                      <p className="text-white/90 text-sm">Originals</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
-      </main>
 
-      <footer className="border-t">
-        <div className="container py-8 text-sm text-muted-foreground flex flex-col md:flex-row items-center justify-between gap-2">
-          <p>© {new Date().getFullYear()} PrimeTimeOTT • All rights reserved.</p>
-          <p>Built with ❤️ • Safe • Fast • Trusted</p>
+        {/* Floating Elements */}
+        <div className="absolute bottom-20 left-10 opacity-60">
+          <div className="w-16 h-16 bg-yellow-400 rounded-full animate-bounce"></div>
         </div>
-      </footer>
+        <div className="absolute top-40 right-20 opacity-40">
+          <div className="w-12 h-12 bg-purple-400 rounded-full animate-pulse"></div>
+        </div>
+        <div className="absolute bottom-40 right-32 opacity-30">
+          <div className="w-8 h-8 bg-cyan-400 rounded-full animate-ping"></div>
+        </div>
+      </main>
     </div>
   );
 };
