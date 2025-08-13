@@ -2,16 +2,8 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, ShieldCheck, Zap, Headphones } from "lucide-react";
 
+// Home landing page for PrimeTimeOTT – OTT deals platform
 const Index = () => {
-  const [mouse, setMouse] = React.useState({ x: 50, y: 50 });
-
-  const onMouseMove: React.MouseEventHandler<HTMLDivElement> = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    setMouse({ x, y });
-  };
-
   return (
     <div>
       <header>
@@ -20,46 +12,40 @@ const Index = () => {
             <span className="gradient-text">PrimeTimeOTT</span>
           </a>
           <div className="hidden md:flex items-center gap-4">
-            <a href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Features</a>
-            <a href="#trust" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Trust</a>
-            <a href="#order" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Order</a>
+            <a href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors story-link">Features</a>
+            <a href="#trust" className="text-sm text-muted-foreground hover:text-foreground transition-colors story-link">Trust</a>
+            <a href="#order" className="text-sm text-muted-foreground hover:text-foreground transition-colors story-link">Order</a>
           </div>
         </nav>
       </header>
 
       <main>
         {/* Hero Section */}
-        <section
-          aria-label="Best OTT Deals Hero"
-          onMouseMove={onMouseMove}
-          className="relative"
-          style={{
-            backgroundImage: `radial-gradient(600px circle at ${mouse.x}% ${mouse.y}%, hsl(var(--brand) / 0.15), transparent 60%)`,
-          }}
-        >
-          <div className="container min-h-[70vh] md:min-h-[72vh] flex items-center">
-            <div className="w-full py-12 md:py-20">
-              <p className="mb-3 inline-flex items-center gap-2 rounded-full bg-secondary px-3 py-1 text-xs md:text-sm text-secondary-foreground">
+        <section aria-label="Best OTT Deals Hero" className="hero-bg">
+          <div className="hero-pattern" aria-hidden="true" />
+          <div className="container min-h-[70vh] md:min-h-[72vh] flex items-center justify-center">
+            <div className="w-full max-w-3xl mx-auto py-12 md:py-20 text-center animate-enter">
+              <p className="mb-3 inline-flex items-center gap-2 rounded-full bg-secondary px-3 py-1 text-xs md:text-sm text-secondary-foreground animate-fade-in">
                 🚀 Fast delivery • 💯 Trusted • 📞 24/7 Support
               </p>
-              <h1 className="text-4xl md:text-6xl font-bold leading-tight gradient-text">
+              <h1 className="text-4xl md:text-6xl font-bold leading-tight gradient-text animate-fade-in">
                 Best OTT Deals – Netflix, Prime, Disney+ & more
               </h1>
-              <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl">
+              <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in">
                 Top platforms ka access, 100% safe & verified service. Pocket-friendly prices, instant delivery. Ab binge hoga non-stop! 🍿📺 @reseller_deeproy
               </p>
 
-              <ul className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm">
+              <ul className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm justify-items-center animate-fade-in">
                 <li className="flex items-center gap-2"><Zap className="text-[hsl(var(--brand))]" /> Instant Activation</li>
                 <li className="flex items-center gap-2"><ShieldCheck className="text-[hsl(var(--brand))]" /> 100% Trusted</li>
                 <li className="flex items-center gap-2"><Headphones className="text-[hsl(var(--brand))]" /> 24/7 Support</li>
               </ul>
 
-              <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-                <Button asChild variant="hero" size="lg">
+              <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
+                <Button asChild variant="hero" size="lg" className="hover-scale">
                   <a href="#order" aria-label="Order Now">Order Now</a>
                 </Button>
-                <Button asChild variant="secondary" size="lg">
+                <Button asChild variant="secondary" size="lg" className="hover-scale">
                   <a href="#features" aria-label="See Plans">Start Binge-Watching</a>
                 </Button>
               </div>
@@ -69,7 +55,7 @@ const Index = () => {
 
         {/* Features Section */}
         <section id="features" className="container py-16 md:py-20">
-          <div className="max-w-2xl mb-8">
+          <div className="max-w-2xl mx-auto text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-semibold">All your favorite OTTs, ek hi jagah</h2>
             <p className="mt-2 text-muted-foreground">Netflix, Prime Video, Disney+ Hotstar, Zee5, SonyLIV — sabka access ab pocket-friendly price me.</p>
           </div>
@@ -144,8 +130,8 @@ const Index = () => {
             <h2 className="mt-2 text-2xl md:text-3xl font-semibold">Ready to binge? Best prices, instant delivery!</h2>
             <p className="mt-2 text-muted-foreground">Order karo aur binge shuru karo — aaj hi. Fast delivery ✅ 100% trusted ✅ Unlimited entertainment ✅</p>
             <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-              <Button variant="hero" size="lg">Order Now</Button>
-              <Button asChild variant="secondary" size="lg">
+              <Button variant="hero" size="lg" className="hover-scale">Order Now</Button>
+              <Button asChild variant="secondary" size="lg" className="hover-scale">
                 <a href="#features">See Platforms</a>
               </Button>
             </div>
